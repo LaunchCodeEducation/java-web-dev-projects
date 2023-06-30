@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="collections-exercises" target="17" />
+      <module name="collections-exercises.main" target="17" />
+      <module name="collections-exercises.test" target="17" />
+      <module name="controllers-routing-exercises" target="17" />
+      <module name="controllers-routing-exercises.main" target="17" />
+      <module name="controllers-routing-exercises.test" target="17" />
+      <module name="controllers-routing-studio" target="17" />
+      <module name="controllers-routing-studio.main" target="17" />
+      <module name="controllers-routing-studio.test" target="17" />
+      <module name="counting-characters" target="17" />
+      <module name="counting-characters.main" target="17" />
+      <module name="counting-characters.test" target="17" />
+      <module name="student-example" target="17" />
+      <module name="student-example.main" target="17" />
+      <module name="student-example.test" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
