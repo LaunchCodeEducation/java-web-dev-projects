@@ -1,8 +1,8 @@
 package org.launchcode;
 
 public class Main {
-    public static void main(String[] args) {
 
-        System.out.println("Write Your Code Here!");
+    public static void main(String[] args) {
+        // write your code here
     }
 }

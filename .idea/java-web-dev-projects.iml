@@ -6,6 +6,10 @@
       <sourceFolder url="file://$MODULE_DIR$/datatypes/datatype-examples/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/classes-part-2/examples/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/classes-part-2/exercises/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/classes-part-2/studio/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/datatypes/datatypes-exercises/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/datatypes/datatypes-studio/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/datatypes/exercises/src/main/java" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
