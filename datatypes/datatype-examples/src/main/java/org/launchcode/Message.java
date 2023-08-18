@@ -1,4 +1,4 @@
-package org.launchcode;
+package main.java.org.launchcode;
 
 public class Message {
 
@@ -8,7 +8,11 @@ public class Message {
             return "¡Hola, Mundo!";
         } else if (lang.equals("fr")) {
             return "Bonjour, le monde!";
-        } else {
+        } else if (lang.equals("de")) {
+            return "Hallo, Welt!";
+        } else if (lang.equals("ru")) {
+            return "Privet, mir!";
+        }else {
             return "Hello, World!";
         }
     }
