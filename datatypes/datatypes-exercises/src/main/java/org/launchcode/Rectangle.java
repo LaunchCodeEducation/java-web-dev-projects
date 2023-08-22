@@ -1,4 +1,4 @@
-package main.java.org.launchcode;
+package org.launchcode;
 
 import java.util.Scanner;
 
