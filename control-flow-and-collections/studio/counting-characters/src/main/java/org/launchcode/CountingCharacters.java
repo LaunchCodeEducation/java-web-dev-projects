@@ -30,11 +30,32 @@ public class CountingCharacters {
             }
         }
 
-
-
-
         for (Map.Entry<Character, Integer> c : character.entrySet()) {
             System.out.println(c.getKey() + ": " + c.getValue());
         }
+
+        HashMap<Character, Integer> userCharacter = new HashMap<>();
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter a phrase to count letters: ");
+        String userString = input.nextLine();
+        char[] userChar = userString.toLowerCase().toCharArray();
+
+
+        for (char value : userChar){
+            if (Character.isLetter(value)){
+                Integer counter = 0;
+                userCharacter.put(value, counter);
+                for(char c : userChar){
+                    if(value == c){
+                        userCharacter.put(value, userCharacter.get(value)+1);
+                    }
+                }
+            }
+        }
+        for (Map.Entry<Character, Integer> c : userCharacter.entrySet()) {
+            System.out.println(c.getKey() + ": " + c.getValue());
+        }
+
+
     }
 }
