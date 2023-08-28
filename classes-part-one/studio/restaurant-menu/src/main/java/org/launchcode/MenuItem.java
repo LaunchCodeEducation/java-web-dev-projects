@@ -28,4 +28,6 @@ public class MenuItem {
     public void setNew(boolean aNew) {
         isNew = aNew;
     }
+
+    public double getprice() {return price;}
 }
