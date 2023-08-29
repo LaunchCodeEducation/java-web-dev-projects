@@ -1,0 +1,15 @@
+Menu:
+    Fields-Name/Type/Access
+        lastUpdated/Date/Private
+        items/ArrayList<MenuItem>/Private
+    Needs constructor - public
+    Needs getters and setters for each field - all public
+
+MenuItem:
+    Fields-Name/Type/Access
+        price/double/Private
+        description/String/Private
+        category/String/Private
+        isNew/Boolean/Private
+    Needs constructor - public
+    Needs getters and setters for each field - all public
