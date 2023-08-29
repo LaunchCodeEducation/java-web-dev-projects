@@ -4,27 +4,14 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Menu {
-    private Date lastUpdated;
-    private ArrayList<MenuItem> items;
+    ArrayList<MenuItem> menuItems = new ArrayList<>();
 
-    public Menu(Date d, ArrayList<MenuItem> i) {
-        this.lastUpdated = d;
-        this.items = i;
-    }
+    public void addMenuItem(MenuItem menuItem) {
+        menuItems.add(menuItem);
 
-    public void setLastUpdated(Date lastUpdated) {
-        this.lastUpdated = lastUpdated;
-    }
+        //update isNew to false when item is 10 days old using Date class
+        menuItem.isNew = false;
 
-    public void setItems(ArrayList<MenuItem> items) {
-        this.items = items;
-    }
 
-    public Date getLastUpdated() {
-        return lastUpdated;
-    }
-
-    public ArrayList<MenuItem> getItems() {
-        return items;
     }
 }
