@@ -1,31 +1,30 @@
 package org.launchcode;
+import java.util.Date;
 
 public class MenuItem {
-    private double price;
+    private Double price;
+    private String name;
     private String description;
     private String category;
-    private boolean isNew;
+    private Boolean isNew = false;
+    private Date dateAdded = new Date();
 
-    public MenuItem(double p, String d, String c, boolean iN) {
-        this.price = p;
-        this.description = d;
-        this.category = c;
-        this.isNew = iN;
-    }
+    public MenuItem(String name, String category, Date dateAdded, Boolean isNew, Double price, String description) {
 
-    public void setPrice(double price) {
+        this.name = name;
+        this.category = category;
+        this.dateAdded = dateAdded;
+        this.isNew = false;
         this.price = price;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
     }
-
-    public void setCategory(String category) {
-        this.category = category;
+    public MenuItem(String name, String category, Date dateAdded, Boolean isNew) {
+        this(name, category, dateAdded, isNew, null, null);
     }
 
-    public void setNew(boolean aNew) {
-        isNew = aNew;
+    //not sure if this is kosher, but it works. update to cohere with book after reading next chapter
+    public String toString() {
+        return name + " - " + category + " - $" + price;
     }
+
 }
