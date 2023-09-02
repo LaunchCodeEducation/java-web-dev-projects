@@ -13,6 +13,11 @@ public class Teacher {
         this.yearsTeaching = yearsTeaching;
     }
 
+    @Override
+    public String toString() {
+        return firstName  + " " + lastName;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }

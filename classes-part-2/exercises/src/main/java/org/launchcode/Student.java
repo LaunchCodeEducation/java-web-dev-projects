@@ -1,5 +1,8 @@
 package org.launchcode;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class Student {
 
     private static int nextStudentId = 1;
@@ -30,20 +33,57 @@ public class Student {
 
 
     //TODO: Uncomment and complete the getGradeLevel method here:
-//    public String getGradeLevel() {
-//        // Determine the grade level of the student based on numberOfCredits
-//    }
+    public String getGradeLevel(int credits) {
+        // Determine the grade level of the student based on numberOfCredits
+        if (credits <= 29) {
+            return "Freshman";
+        } else if (credits <= 59) {
+            return "Sophomore";
+        } else if (credits <= 89) {
+            return "Junior";
+        } else  {
+            return "Senior";
+        }
+    }
 
     // TODO: Complete the addGrade method.
     public void addGrade(int courseCredits, double grade) {
         // Update the appropriate fields: numberOfCredits, gpa
+        double totalQualityScore = this.gpa * this.numberOfCredits;
+        totalQualityScore += courseCredits * grade;
+        this.numberOfCredits += courseCredits;
+        this.gpa = Math.round((totalQualityScore / this.numberOfCredits) * 100.0) / 100.0;
     }
 
     // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
     //  than just the class fields.
 
+    @Override
+    public String toString() {
+        return "Student { " + name  +
+                " has a student Id: " + studentId +
+                ", " + numberOfCredits +
+                " credits, and a gpa of " + gpa + "." +
+                '}';
+    }
+
+
     // TODO: Add your custom 'equals' method here. Consider which fields should match in order to call two
     //  Student objects equal.
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return studentId == student.studentId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(studentId);
+    }
 
     public String getName() {
         return name;
@@ -85,5 +125,16 @@ public class Student {
         System.out.println(sally);
         sally.addGrade(25, 3.8);
         System.out.println(sally);
+        Teacher peggy = new Teacher("Peggy", "Hill", "Spanish", 22);
+        Course spanish = new Course();
+        spanish.setTopic("Spanish");
+        spanish.setInstructor(peggy);
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(sally);
+        spanish.setEnrolledStudents(students);
+        System.out.println(spanish);
+        Student dale = new Student("Dale", 2, 4, 2.3);
+        students.add(dale);
+        System.out.println(spanish);
     }
 }

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Bonus {
     public static String BonusMission() throws FileNotFoundException {
-        File file = new File("/Users/brittneyepperson/Desktop/gretzky.txt");
+        File file = new File("/Users/brittneyepperson/launchcode/Java/chapter-1/java-web-dev-projects/control-flow-and-collections/studio/counting-characters/src/main/java/org/launchcode/gretzky");
         Scanner scan = new Scanner(file);
 
         String fileContent = "";
