@@ -5,7 +5,7 @@ import java.util.Map;
 public class OccuranceOfChar {
     static void characterCount(String inputString){
 
-        HashMap<Character, Integer> charCountMap = new HashMap<Character, Integer>();
+        HashMap<Character, Integer> charCountMap = new HashMap<>();
 
         char[] strArray = inputString.toCharArray();
 
