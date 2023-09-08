@@ -19,6 +19,17 @@ public class Main {
     menu.addMenuItem(item2);
     menu.addMenuItem(item3);
 
+    //remove items?
+
+    menu.removeMenuItem(item1);
+
     menu.printMenu();
+
+    System.out.println("\n" + item1);
+
+        System.out.println(java.time.LocalDateTime.now());
+
+        menu.isNew(item1);
     }
+
 }
