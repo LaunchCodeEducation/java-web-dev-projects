@@ -1,5 +1,4 @@
 package org.launchcode;
-import org.launchcode.MenuItem;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -46,12 +45,12 @@ public class Menu {
     }
 
     public static void menuSetter(ArrayList){
-        for (Object menuItem:ArrayList){
-            if (category = "Apps") {
-                System.out.println(menuItem);
-            }
+       for (Object menuItem:ArrayList){
+           if (category = "Apps") {
+               System.out.println(menuItem);
+           }
 
-        }
+       }
         for (Object menuItem:ArrayList) {
             if (category = "Entrees") {
                 System.out.println(menuItem);
