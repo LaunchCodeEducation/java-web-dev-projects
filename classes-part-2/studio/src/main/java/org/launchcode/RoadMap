@@ -1,0 +1,13 @@
+Based on these details, you need to include some instance methods:
+A way to add and remove menu items from the menu.
+addItem
+removeItem
+A way to tell if a menu item is new.
+getNew
+A way to tell when the menu was last updated.
+menu.getLastUpdated
+A way to print out both a single menu item as well as the entire menu.
+Entire menu get items with for loop
+Menu item by index in array
+A way to determine whether or not two menu items are equal.
+	Override equals method to compare price, description, and category
