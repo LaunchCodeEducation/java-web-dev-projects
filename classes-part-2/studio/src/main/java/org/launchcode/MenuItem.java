@@ -17,14 +17,28 @@ public class MenuItem {
         this.price = price;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
+    public String getCategory() {
+        return category;
+    }
     public void setCategory(String category) {
         this.category = category;
     }
 
+    public boolean isNew() {
+        return isNew;
+    }
     public void setNew(boolean aNew) {
         isNew = aNew;
     }
