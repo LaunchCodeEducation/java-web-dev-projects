@@ -30,20 +30,53 @@ public class Student {
 
 
     //TODO: Uncomment and complete the getGradeLevel method here:
-//    public String getGradeLevel() {
-//        // Determine the grade level of the student based on numberOfCredits
-//    }
+    public String getGradeLevel(int credits) {
+        // Determine the grade level of the student based on numberOfCredits
+        if (credits < 30) {
+            return "freshman";
+        } else if (credits < 60) {
+            return "sophomore";
+        } else if (credits < 90) {
+            return "junior";
+        } else {
+            return "senior";
+        }
+    }
 
     // TODO: Complete the addGrade method.
     public void addGrade(int courseCredits, double grade) {
         // Update the appropriate fields: numberOfCredits, gpa
+        double totalQualityScore = this.numberOfCredits * this.gpa;
+        double updatedQualityScore = (courseCredits * grade) + totalQualityScore;
+        this.numberOfCredits += courseCredits;
+        this.gpa = updatedQualityScore / this.numberOfCredits;
     }
 
     // TODO: Add your custom 'toString' method here. Make sure it returns a well-formatted String rather
     //  than just the class fields.
 
+    @java.lang.Override
+    public java.lang.String toString() {
+        String studentReport = String.format("%s is a %s with %d credits and a GPA of %.2f",
+                this.name, this.getGradeLevel(this.numberOfCredits), this.getNumberOfCredits(), this.getGpa());
+        return studentReport;
+    }
+
     // TODO: Add your custom 'equals' method here. Consider which fields should match in order to call two
     //  Student objects equal.
+
+
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        if (!super.equals(object)) return false;
+        Student student = (Student) object;
+        return studentId == student.studentId && java.util.Objects.equals(name, student.name);
+    }
+
+//    public int hashCode() {
+//        return Objects.hash(super.hashCode(), name, studentId);
+//    }
 
     public String getName() {
         return name;

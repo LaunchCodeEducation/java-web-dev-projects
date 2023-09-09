@@ -1,4 +1,4 @@
-package src.main.java.org.launchcode;
+package main.java.org.launchcode;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package src.main.java.org.launchcode;
+package main.java.org.launchcode;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -21,4 +21,5 @@ public class Menu {
             }
         System.out.println("\n" + "Last updated: " + d1);
     }
+
 }
