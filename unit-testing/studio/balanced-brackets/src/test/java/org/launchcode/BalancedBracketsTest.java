@@ -79,17 +79,17 @@ class BalancedBracketsTest {
         assertEquals("]", BalancedBrackets.closingBraceInString("lau]sdf"));
     }
 
-    //TODO: assert is CLOSING brace contained in string
+    //TODO: assert if two opening brace are in a row
     @Test
     public void twoOpeningBracesInARow(){
-        assertEquals("[", BalancedBrackets.twoOpeningBracesInARow("[laun[ch"));
+
+        assertNotEquals("[", BalancedBrackets.twoOpeningBracesInARow("[la]un[ch"));
     }
 
-    //TODO: assert is CLOSING brace contained in string
+    //TODO: assert is two closing brace are in a row
     @Test
     public void twoClosingBraceInSequence(){
-        System.out.println(BalancedBrackets.twoClosingBraceInSequence("]la]uch"));
-        assertEquals("]", BalancedBrackets.twoClosingBraceInSequence("]lau]sdf"));
+        assertNotEquals("]", BalancedBrackets.twoClosingBraceInSequence("]l[au]sdf"));
     }
 
 }

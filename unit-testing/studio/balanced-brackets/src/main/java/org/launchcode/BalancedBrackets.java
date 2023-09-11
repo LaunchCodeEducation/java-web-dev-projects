@@ -161,17 +161,20 @@ public class BalancedBrackets {
     public static String twoOpeningBracesInARow(String str) {
 
         char[] charArray = new char[str.length()];
+        StringBuilder arrayToStringBuilder = new StringBuilder();
         int i = 0;
         String twoOpeningBraces = null;
         for (char ch : str.toCharArray()){
-            if(ch == '['){
+            if(ch == '[' || ch == ']'){
                 charArray[i] = ch;
                 i++;
             }
-
-
         }
-        if(charArray[0] == '[' && charArray[1] == '[' ){
+
+        arrayToStringBuilder.append(charArray);
+        String braces =  arrayToStringBuilder.toString();
+
+        if(braces.contains("[[")){
             twoOpeningBraces = "[";
         }
         return twoOpeningBraces;
@@ -180,17 +183,20 @@ public class BalancedBrackets {
     public static String twoClosingBraceInSequence(String str) {
 
         char[] charArray = new char[str.length()];
+        StringBuilder arrayToStringBuilder = new StringBuilder();
         int i = 0;
         String twoClosingBraces = null;
         for (char ch : str.toCharArray()){
-            if(ch == ']'){
+            if(ch == '[' || ch == ']'){
                 charArray[i] = ch;
                 i++;
             }
-
-
         }
-        if(charArray[0] == ']' && charArray[1] == ']' ){
+
+        arrayToStringBuilder.append(charArray);
+        String braces =  arrayToStringBuilder.toString();
+
+        if(braces.contains("]]")){
             twoClosingBraces = "]";
         }
         return twoClosingBraces;
