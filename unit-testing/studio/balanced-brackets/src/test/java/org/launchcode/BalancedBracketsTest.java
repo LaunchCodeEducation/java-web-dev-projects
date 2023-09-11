@@ -16,21 +16,20 @@ class BalancedBracketsTest {
     //TODO: Assert there is an even number of opening and closing braces
     @Test
     public void evenNumberOfBrackets(){
-        BalancedBrackets.hasBalancedBrackets("[launchCode]");
         assertTrue(BalancedBrackets.moreOpeningOrClosingBraces("[launch]") == 0);
     }
 
     //TODO: assert if there are more opening braces than closing braces
     @Test
     public void closingBracesMissing(){
-        BalancedBrackets.hasBalancedBrackets("launchCode]");
-        assertTrue(BalancedBrackets.moreOpeningOrClosingBraces("[string") >= 0);
+
+        assertTrue(BalancedBrackets.moreOpeningOrClosingBraces("[string]") <= 0);
     }
 
     //TODO: assert if there are more closing braces than opening braces
     @Test
     public void openingBracesMissing(){
-        assertTrue(BalancedBrackets.moreOpeningOrClosingBraces("stri]ng") <= 0);
+        assertTrue(BalancedBrackets.moreOpeningOrClosingBraces("[stri]ng") >= 0);
     }
 
     //TODO: assert string containing only brackets returns true

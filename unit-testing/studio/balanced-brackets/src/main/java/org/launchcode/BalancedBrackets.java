@@ -20,24 +20,6 @@ public class BalancedBrackets {
      * @param str - to be validated
      * @return true if balanced, false otherwise
      */
-//    MY FIRST ATTEMPT
-//    static int brackets = 0;
-//
-//    public static int hasBalancedBrackets(String str) {
-//
-//        for (char ch : str.toCharArray()) {
-//            if (ch == '[') {
-//                brackets++;
-//
-//            } else if (ch == ']') {
-//                brackets--;
-//            }
-//        }
-//            return brackets;
-//    }
-
-
-//    ORIGINAL CODE THAT HAD A BOOLEAN STATEMENT
 
 
     public static boolean hasBalancedBrackets(String str) {
@@ -51,9 +33,7 @@ public class BalancedBrackets {
                 brackets--;
             }
         }
-
         return brackets == 0;
-
     }
 
     public static String openingOrClosingFirst(String str) {
@@ -80,16 +60,6 @@ public class BalancedBrackets {
         }
         return balancedOrNot;
 
-    }
-
-    public static int totalNumberOfBraces(String str){
-        int braceCount = 0;
-        for (char ch : str.toCharArray()){
-            if(ch == '[' || ch == ']'){
-                braceCount++;
-            }
-        }
-        return braceCount;
     }
 
     public static String stringStartWith(String str) {
