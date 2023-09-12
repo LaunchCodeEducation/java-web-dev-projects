@@ -30,7 +30,7 @@ public class BalancedBrackets {
             if (brackets < 0) {
                 return false;
             }
-            if(!str.contains("[") || !str.contains("]")) {
+            if(!str.contains("[") && !str.contains("]")) {
                 return false;
             };
         }
