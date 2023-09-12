@@ -16,7 +16,8 @@ class BalancedBracketsTest {
     //TODO: Assert there is an even number of opening and closing braces
     @Test
     public void evenNumberOfBrackets(){
-        assertTrue(BalancedBrackets.moreOpeningOrClosingBraces("[launch]") == 0);
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[la]u[nch]"));
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[]"));
     }
 
     //TODO: assert if there are more opening braces than closing braces
@@ -24,12 +25,15 @@ class BalancedBracketsTest {
     public void closingBracesMissing(){
 
         assertTrue(BalancedBrackets.moreOpeningOrClosingBraces("[string]") <= 0);
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[string]"));
     }
 
     //TODO: assert if there are more closing braces than opening braces
     @Test
     public void openingBracesMissing(){
+
         assertTrue(BalancedBrackets.moreOpeningOrClosingBraces("[stri]ng") >= 0);
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[la]unch"));
     }
 
     //TODO: assert string containing only brackets returns true
@@ -38,11 +42,13 @@ class BalancedBracketsTest {
         assertTrue(BalancedBrackets.hasBalancedBrackets("[]"));
     }
 
+
     //TODO: assert if opening brace comes first
     @Test
     public void openingBraceFirst(){
         assertEquals("[",BalancedBrackets.openingOrClosingFirst("[launch"));
     }
+
 
     //TODO: asser if closing brace comes first
     @Test
@@ -83,12 +89,14 @@ class BalancedBracketsTest {
     public void twoOpeningBracesInARow(){
 
         assertNotEquals("[", BalancedBrackets.twoOpeningBracesInARow("[la]un[ch"));
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[la]unc[h]"));
     }
 
     //TODO: assert is two closing brace are in a row
     @Test
     public void twoClosingBraceInSequence(){
         assertNotEquals("]", BalancedBrackets.twoClosingBraceInSequence("]l[au]sdf"));
+        assertTrue(BalancedBrackets.hasBalancedBrackets("[la][unch]"));
     }
 
 }
