@@ -1,16 +1,13 @@
 package org.launchcode;
 
 import org.junit.jupiter.api.Test;
-
-import javax.sql.rowset.BaseRowSet;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class BalancedBracketsTest {
     //TODO: emptyTest to assert gradle build is good
     @Test
     public void emptyTest() {
-        assertEquals(true, true);
+        assertTrue(true);
     }
 
     //TODO: Assert there is an even number of opening and closing braces
