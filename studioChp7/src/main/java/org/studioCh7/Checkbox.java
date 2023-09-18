@@ -22,6 +22,6 @@ public class Checkbox extends Question{
                 numCorrect++;
             }
         }
-        return numCorrect;
+        return numCorrect > 0 ? numCorrect : getChoiceMap().size();
     }
 }
