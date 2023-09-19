@@ -1,8 +1,20 @@
 package org.launchcode;
 
-public class DVD {
-    // TODO: Implement your custom interface.
+public class DVD extends BaseDisc implements OpticalDisc{
 
-    // TODO: Determine which fields, methods, and constructors can be extended from the base class and which ones
-    //  need to be declared separately.
+    private static final int spinSpeed = 32000;
+
+    public DVD(String name, int capacity, String diskType) {
+        super(name, capacity, diskType);
+    }
+
+    @Override
+    public String toString(){
+        return super.toString() + " GB.";
+    }
+
+    @Override
+    public void spinDisc() {
+        System.out.println("The spin speed of a " + getDiskType() + " is " + spinSpeed + " rpm.");
+    }
 }
