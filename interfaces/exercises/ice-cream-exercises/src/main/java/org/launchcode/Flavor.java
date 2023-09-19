@@ -1,4 +1,4 @@
-package org.launchcode;
+package main.java.org.launchcode;
 
 import java.util.ArrayList;
 
