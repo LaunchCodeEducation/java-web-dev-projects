@@ -23,12 +23,12 @@ public class HelloController {
 
 
 
-//    @RequestMapping (method = {RequestMethod.GET, RequestMethod.POST}, value = "hello")
-//    @ResponseBody
-//    public String helloWithQueryParam(@RequestParam String name) {
-//       return "Hello, " + name + "!";
-//
-//    }
+    @RequestMapping (method = {RequestMethod.GET, RequestMethod.POST}, value = "hello")
+    @ResponseBody
+    public String helloWithQueryParam(@RequestParam String name) {
+       return "Hello, " + name + "!";
+
+    }
 
     //for exercises
 
