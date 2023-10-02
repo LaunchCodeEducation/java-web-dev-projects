@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <th:block th:each = "name : ${names}">
+        <li th:text = "${name}"></li>
+    </th:block>
+</ul>
+</body>
+</html>

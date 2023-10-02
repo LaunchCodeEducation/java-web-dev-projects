@@ -1,4 +1,4 @@
-package org.launchcode;
+package main.java.org.launchcode;
 import java.util.ArrayList;
 
 public abstract class BaseDisc {
@@ -35,10 +35,16 @@ public abstract class BaseDisc {
         return output;
     }
 
-    public String writeData(int dataSize){
-        if (dataSize > remainingCapacity){
-            return "Not enough disc space!";
+    public String writeData(int dataSize) {
+        if (dataSize > remainingCapacity) {
+            try {
+                throw new NotEnoughMemoryException(dataSize);
+            } catch (NotEnoughMemoryException e) {
+                e.printStackTrace();
+            }
+            //return "Not enough disc space!";
         }
+
         capacityUsed += dataSize;
         remainingCapacity -= dataSize;
 
