@@ -50,7 +50,7 @@ public class Menu {
             printMenuItem(item);
         }
 
-        //System.out.println(this);o
+        //System.out.println(this);
     }
 
     public void printItemsWithDescription(String startOfDescription) {

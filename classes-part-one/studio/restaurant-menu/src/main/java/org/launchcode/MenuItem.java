@@ -35,19 +35,6 @@ public class MenuItem {
         return category;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof MenuItem)) return false;
-        MenuItem menuItem = (MenuItem) o;
-        return Objects.equals(description, menuItem.description) && category == menuItem.category;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(description, category);
-    }
-
     public boolean isNew() {
         return isNew;
     }
@@ -67,7 +54,18 @@ public class MenuItem {
         this.description = description;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MenuItem menuItem = (MenuItem) o;
+        return Double.compare(menuItem.price, price) == 0 && Objects.equals(description, menuItem.description) && category == menuItem.category;
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(price, description, category);
+    }
 
     public void setCategory(Category category) {
         this.category = category;
