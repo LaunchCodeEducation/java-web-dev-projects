@@ -8,57 +8,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-
-@RequestMapping(value="hello")
 public class HelloController {
-    //hello path
-//    @GetMapping("hello")
-//    @ResponseBody
-//    public String hello() {
-//        return "Hello, Spring!";
-//    }
-//goodbye route
+
     @GetMapping("goodbye")
+    @ResponseBody
     public String goodbye() {
         return "Goodbye, Spring!";
     }
 
-    //create handler to handle requests of the form /hello?name=LaunchCode
-@RequestMapping(method={RequestMethod.GET, RequestMethod.POST}, value="hello")
-    public String helloWithQueryParam(@RequestParam String name, Model model){
-    String greeting = "Hello " + name + "!";
-    model.addAttribute("greeting", greeting);
-    return "hello";
+    // Handles requests of the form /hello?name=LaunchCode
+    @RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value = "hello")
+    @ResponseBody
+    public String helloWithQueryParam(@RequestParam String name) {
+        return "Hello, " + name + "!";
     }
+
+    // Handles requests of the form /hello/LaunchCode
     @GetMapping("hello/{name}")
-    public String helloWithPathParam(@PathVariable String name, Model model){
-        String greeting = "Hello " + name + "!";
-        model.addAttribute("greeting", greeting);
-        return "hello";
+    @ResponseBody
+    public String helloWithPathParam(@PathVariable String name) {
+        return "Hello, " + name + "!";
     }
+
+    // /hello/form
     @GetMapping("form")
-    public String helloWithForm(){
+    public String helloForm() {
         return "form";
-
-//        return "<html>" +
-//                "<body>" +
-//                "<form action='hello' method='post'>" + //maps the input to source/hello works b/c query param method above
-//                "<input type='text' name='name'></input>" +
-//                "<input type='submit' value='Greet me!'>" +
-//                "</input>" +
-//                "</form>" +
-//                "</body>" +
-//                "</html>";
-    }
-
-    @GetMapping("hello-names")
-    public String helloNames(Model model) {
-        List<String> names = new ArrayList<>();
-        names.add("LaunchCode");
-        names.add("JavaScript");
-        names.add("Java");
-        model.addAttribute("names", names);
-        return "hello-list";
     }
 
 }
