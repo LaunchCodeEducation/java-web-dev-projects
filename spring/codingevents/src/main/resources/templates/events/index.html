@@ -5,18 +5,24 @@
 <h1>All Events</h1>
 <nav th:replace = "~{fragments :: navigation}"></nav>
 
-<p th:unless="${actualEvents} and ${actualEvents.size()}">None to show!</p>
+<p th:unless="${events} and ${events.size()}">None to show!</p>
 <!--<ul><li th:each="event:${actualEvents}" th:text="${event.key}"></li></ul>-->
 <table class="table table-striped">
-<!--    <thead>-->
-<!--    <tr>-->
-<!--        <th>Name</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Address</th>
+    </tr>
+    </thead>
 
-    <tr th:each="event:${actualEvents}">
-        <td th:text="${event.key}"></td>
-        <td th:text="${event.value}"></td>
+    <tr th:each="event:${events}">
+<!--        <td th:text="${event.key}"></td>-->
+<!--        <td th:text="${event.value}"></td> works but for hashmaps-->
+            <td th:text="${event.id}"></td>
+            <td th:text="${event.name}"></td>
+            <td th:text="${event.description}"></td>
         <td th:replace="~{fragments :: address}"></td>
     </tr>
 
