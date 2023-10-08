@@ -13,7 +13,11 @@
         <th>ID</th>
         <th>Name</th>
         <th>Description</th>
-        <th>Address</th>
+        <th>Contact Email</th>
+        <th>Street Address</th>
+        <th>Zipcode</th>
+        <th>Pre-registration Required</th>
+        <th>Number of Expected Attendees</th>
     </tr>
     </thead>
 
@@ -23,7 +27,12 @@
             <td th:text="${event.id}"></td>
             <td th:text="${event.name}"></td>
             <td th:text="${event.description}"></td>
-        <td th:replace="~{fragments :: address}"></td>
+            <td th:text="${event.contactEmail}"></td>
+<!--            <td th:replace="~{fragments :: address}"></td>-->
+            <td th:text="${event.address}"></td>
+            <td th:text="${event.zipcode}"></td>
+            <td th:text="${event.registrationRequired}"></td>
+            <td th:text="${event.numAttendees}"></td>
     </tr>
 
 </table>

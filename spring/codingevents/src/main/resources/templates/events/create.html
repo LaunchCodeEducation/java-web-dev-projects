@@ -3,24 +3,57 @@
 <head th:replace="~{fragments :: head}"></head>
 
 <body class="container">
+<p th:text="${errorMsg}" style="color:red;"></p>
 
 <h1>Create Event</h1>
 <nav th:replace = "~{fragments :: navigation}"></nav>
 
 
 <form method="post">
-    <div class ="form-group">
+    <div class="form-group">
         <label>Name
-    <input type="text" name="name" class="form=control">
+            <input type="text" th:field="${event.name}" class="form-control" />
         </label>
-    </div>
-    <div class ="form-group">
-    <label>Description
-        <input type="text" name="description" class="form=control">
-    </label>
+        <p class="error" th:errors="${event.name}"></p>
     </div>
     <div class="form-group">
-    <input type="submit" value="Create Event" class="btn btn-success">
+        <label>Description
+            <input type="text" th:field="${event.description}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${event.description}"></p>
+    </div>
+    <div class="form-group">
+        <label>Contact Email
+            <input type="text" th:field="${event.contactEmail}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${event.contactEmail}"></p>
+    </div>
+    <div class="form-group">
+        <label>Street Address
+            <input type="text" th:field="${event.address}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${event.address}"></p>
+    </div>
+    <div class="form-group">
+        <label>Zipcode
+            <input type="number" th:field="${event.zipcode}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${event.zipcode}"></p>
+    </div>
+    <div class="form-group">
+        <label>Pre-registration Required
+            <input type="checkbox" th:field="${event.registrationRequired}" />
+        </label>
+<!--        <p class="error" th:errors="${event.registrationRequired}"></p>-->
+    </div>
+    <div class="form-group">
+        <label>Number of Expected Attendees
+            <input type="number" th:field="${event.numAttendees}" class="form-control" />
+        </label>
+        <p class="error" th:errors="${event.numAttendees}"></p>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success" />
     </div>
 </form>
 
