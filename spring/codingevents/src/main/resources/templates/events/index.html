@@ -18,6 +18,7 @@
         <th>Zipcode</th>
         <th>Pre-registration Required</th>
         <th>Number of Expected Attendees</th>
+        <th>Type</th>
     </tr>
     </thead>
 
@@ -33,6 +34,8 @@
             <td th:text="${event.zipcode}"></td>
             <td th:text="${event.registrationRequired}"></td>
             <td th:text="${event.numAttendees}"></td>
+            <td th:text="${event.type.displayName}"></td>
+
     </tr>
 
 </table>

@@ -30,7 +30,9 @@ public class Event {
     private int id;
     private static int nextId=1;
 
-    public Event(String name, String description, String contactEmail, String address, String zipcode, Boolean registrationRequired, int numAttendees) {
+    private EventType type;
+
+    public Event(String name, String description, String contactEmail, String address, String zipcode, Boolean registrationRequired, int numAttendees, EventType type) {
         this();
         this.name = name;
         this.description = description;
@@ -39,11 +41,20 @@ public class Event {
         this.zipcode = zipcode;
         this.registrationRequired = registrationRequired;
         this.numAttendees = numAttendees;
+        this.type = type;
 
     }
     public Event() {
         this.id=nextId;
         nextId++;
+    }
+
+    public EventType getType() {
+        return type;
+    }
+
+    public void setType(EventType type) {
+        this.type = type;
     }
 
     public int getNumAttendees() {
