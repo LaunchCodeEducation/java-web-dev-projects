@@ -2,8 +2,10 @@ package org.launchcode.codingevents.controllers;
 
 import jakarta.validation.Valid;
 import org.launchcode.codingevents.data.EventData;
+import org.launchcode.codingevents.data.EventRepository;
 import org.launchcode.codingevents.models.Event;
 import org.launchcode.codingevents.models.EventType;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -21,6 +23,9 @@ public class EventController {
     //private static Map<String, String> actualEvents = new HashMap<>();
     //private static List<Event> events = new ArrayList<>(); - commented out once EventData class is made
 
+    @Autowired
+    private EventRepository eventRepository;
+    //lets try findall, save and findbyid
     @GetMapping
     public String displayAllEvents(Model model){
         //List dummyEvents = new ArrayList<>();
@@ -31,7 +36,7 @@ public class EventController {
 //        actualEvents.put("So-so Event", "Promise it will smell so-so");
 //        actualEvents.put("Okay Event", "Promise it will smell okay");
 //        model.addAttribute("actualEvents", actualEvents);
-          model.addAttribute("events", EventData.getAll());
+          model.addAttribute("events", eventRepository.findAll());
           model.addAttribute("title", "All Events");
 
         return "events/index";
@@ -62,14 +67,14 @@ public class EventController {
         }
 //        if(Integer.parseInt(newEvent.getZipcode())
 
-        EventData.add(newEvent);
+        eventRepository.save(newEvent);
         return "redirect:/events";
     }
 
     @GetMapping("delete")
     public String displayDeleteEventForm(Model model) {
         model.addAttribute("title", "Delete Events");
-        model.addAttribute("events", EventData.getAll());
+        model.addAttribute("events", eventRepository.findAll());
         return "events/delete";
     }
 
@@ -77,7 +82,7 @@ public class EventController {
     public String processDeleteEventsForm(@RequestParam(required = false) int[] eventIds) {
         if(eventIds != null) {
             for (int eventId : eventIds) {
-                EventData.remove(eventId);
+                eventRepository.deleteById(eventId);
             }
         }
     return "redirect:/events";

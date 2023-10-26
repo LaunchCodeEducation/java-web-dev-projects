@@ -1,9 +1,13 @@
 package org.launchcode.codingevents.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
 
 import java.util.Objects;
 
+@Entity
 public class Event {
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters.")
     @NotBlank(message = "Name is required.")
@@ -27,13 +31,15 @@ public class Event {
 @Size(min=5, max=5, message="Must enter 5-digit zipcode")
     private String zipcode;
 
+    @Id
+    @GeneratedValue
     private int id;
-    private static int nextId=1;
+    // not needed when using persistent class private static int nextId=1;
 
     private EventType type;
 
     public Event(String name, String description, String contactEmail, String address, String zipcode, Boolean registrationRequired, int numAttendees, EventType type) {
-        this();
+//        this(); this no longer sets id since second constructor is now blank. persistent class change
         this.name = name;
         this.description = description;
         this.contactEmail = contactEmail;
@@ -45,8 +51,8 @@ public class Event {
 
     }
     public Event() {
-        this.id=nextId;
-        nextId++;
+//        this.id=nextId;
+//        nextId++; not needed when using persistent class
     }
 
     public EventType getType() {
