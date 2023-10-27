@@ -8,7 +8,7 @@ import jakarta.validation.constraints.*;
 import java.util.Objects;
 
 @Entity
-public class Event {
+public class Event extends AbstractEntity{
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters.")
     @NotBlank(message = "Name is required.")
     private String name;
@@ -31,9 +31,9 @@ public class Event {
 @Size(min=5, max=5, message="Must enter 5-digit zipcode")
     private String zipcode;
 
-    @Id
-    @GeneratedValue
-    private int id;
+//    @Id
+//    @GeneratedValue
+//    private int id; gone to the abstract entity
     // not needed when using persistent class private static int nextId=1;
 
     private EventType type;
@@ -103,9 +103,9 @@ public class Event {
         this.contactEmail = contactEmail;
     }
 
-    public int getId() {
-        return id;
-    }
+//    public int getId() {
+//        return id;
+//    } gone to the abstractentity
 
     public String getDescription() {
         return description;
@@ -128,16 +128,17 @@ public class Event {
         return name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Event event = (Event) o;
-        return id == event.id;
-    }
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        Event event = (Event) o;
+//        return id == event.id;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id);
+//    } gone to abstract entity 4/4
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
-    }
 }
