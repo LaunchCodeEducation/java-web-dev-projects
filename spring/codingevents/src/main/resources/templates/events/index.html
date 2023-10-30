@@ -14,28 +14,20 @@
         <th>Name</th>
         <th>Description</th>
         <th>Contact Email</th>
-        <th>Street Address</th>
-        <th>Zipcode</th>
-        <th>Pre-registration Required</th>
-        <th>Number of Expected Attendees</th>
-        <th>Type</th>
+<!--        <th>Street Address</th>-->
+<!--        <th>Zipcode</th>-->
+<!--        <th>Pre-registration Required</th>-->
+<!--        <th>Number of Expected Attendees</th>-->
+        <th>Event Category</th>
     </tr>
     </thead>
 
-    <tr th:each="event:${events}">
-<!--        <td th:text="${event.key}"></td>-->
-<!--        <td th:text="${event.value}"></td> works but for hashmaps-->
-            <td th:text="${event.id}"></td>
-            <td th:text="${event.name}"></td>
-            <td th:text="${event.description}"></td>
-            <td th:text="${event.contactEmail}"></td>
-<!--            <td th:replace="~{fragments :: address}"></td>-->
-            <td th:text="${event.address}"></td>
-            <td th:text="${event.zipcode}"></td>
-            <td th:text="${event.registrationRequired}"></td>
-            <td th:text="${event.numAttendees}"></td>
-            <td th:text="${event.type.displayName}"></td>
-
+    <tr th:each="event : ${events}">
+        <td th:text="${event.id}"></td>
+        <td th:text="${event.name}"></td>
+        <td th:text="${event.eventDetails.description}"></td>
+        <td th:text="${event.eventDetails.contactEmail}"></td>
+        <td th:text="${event.eventCategory.name}"></td>
     </tr>
 
 </table>

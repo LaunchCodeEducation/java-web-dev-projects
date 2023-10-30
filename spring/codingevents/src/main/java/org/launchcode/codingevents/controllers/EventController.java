@@ -1,20 +1,18 @@
 package org.launchcode.codingevents.controllers;
 
 import jakarta.validation.Valid;
+import org.launchcode.codingevents.data.EventCategoryRepository;
 import org.launchcode.codingevents.data.EventData;
 import org.launchcode.codingevents.data.EventRepository;
 import org.launchcode.codingevents.models.Event;
-import org.launchcode.codingevents.models.EventType;
+import org.launchcode.codingevents.models.EventCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("events")
@@ -27,26 +25,32 @@ public class EventController {
     private EventRepository eventRepository;
     //lets try findall, save and findbyid
     @GetMapping
-    public String displayAllEvents(Model model){
-        //List dummyEvents = new ArrayList<>();
-//        dummyEvents.add("Event 1");
-//        dummyEvents.add("Event 2");
-//        dummyEvents.add("Event 3");
-//        actualEvents.put("Super Event", "Promise it will smell good");
-//        actualEvents.put("So-so Event", "Promise it will smell so-so");
-//        actualEvents.put("Okay Event", "Promise it will smell okay");
-//        model.addAttribute("actualEvents", actualEvents);
-          model.addAttribute("events", eventRepository.findAll());
-          model.addAttribute("title", "All Events");
+    public String displayAllEvents(@RequestParam(required = false) Integer categoryId, Model model){
+          if(categoryId == null) {
+              model.addAttribute("events", eventRepository.findAll());
+              model.addAttribute("title", "All Events");
+          } else {
+              Optional<EventCategory> result = eventCategoryRepository.findById(categoryId);
+              if(result.isEmpty()) {
+              model.addAttribute("title", "Invalid Category ID: " + categoryId);
+              } else {
+                  EventCategory category = result.get();
+                  model.addAttribute("title", "Events in Category: " + category.getName());
+                  model.addAttribute("events", category.getEvents());
+              }
+          }
+
 
         return "events/index";
     }
 
+    @Autowired
+    private EventCategoryRepository eventCategoryRepository;
     @GetMapping("create")
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Create Event");
         model.addAttribute("event", new Event());
-        model.addAttribute("types", EventType.values());
+        model.addAttribute("categories", eventCategoryRepository.findAll());
 
         return "events/create";
     }
@@ -102,7 +106,8 @@ public class EventController {
     public String processEditForm(int eventId, String name, String description) {
             Event eventToEdit = EventData.getById(eventId);
             eventToEdit.setName(name);
-            eventToEdit.setDescription(description);
+            eventToEdit.getEventDetails().setDescription(description);
+            //does not seem like it will work
         return "redirect:/events";
     }
 }
