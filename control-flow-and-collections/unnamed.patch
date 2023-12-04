@@ -1,0 +1,49 @@
+Index: control-flow-and-collections/studio/counting-characters/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/control-flow-and-collections/studio/counting-characters/.gitignore b/control-flow-and-collections/studio/counting-characters/.gitignore
+new file mode 100644
+--- /dev/null	(revision 9fb2a8efeb08f99a7c98a30b4dc78eb66c59e770)
++++ b/control-flow-and-collections/studio/counting-characters/.gitignore	(revision 9fb2a8efeb08f99a7c98a30b4dc78eb66c59e770)
+@@ -0,0 +1,38 @@
++target/
++!.mvn/wrapper/maven-wrapper.jar
++!**/src/main/**/target/
++!**/src/test/**/target/
++
++### IntelliJ IDEA ###
++.idea/modules.xml
++.idea/jarRepositories.xml
++.idea/compiler.xml
++.idea/libraries/
++*.iws
++*.iml
++*.ipr
++
++### Eclipse ###
++.apt_generated
++.classpath
++.factorypath
++.project
++.settings
++.springBeans
++.sts4-cache
++
++### NetBeans ###
++/nbproject/private/
++/nbbuild/
++/dist/
++/nbdist/
++/.nb-gradle/
++build/
++!**/src/main/**/build/
++!**/src/test/**/build/
++
++### VS Code ###
++.vscode/
++
++### Mac OS ###
++.DS_Store
+\ No newline at end of file
