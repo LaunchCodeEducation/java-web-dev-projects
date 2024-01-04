@@ -15,3 +15,4 @@ public class Course {
     //  Course objects equal.
 
 }
+
