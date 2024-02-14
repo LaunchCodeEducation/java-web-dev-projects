@@ -21,7 +21,8 @@ public class BalancedBrackets {
      */
     public static boolean hasBalancedBrackets(String str) {
         int brackets = 0;
-        for (char ch : str.toCharArray()) {
+        final String str1 = str;
+        for (char ch : str1.toCharArray()) {
             if (ch == '[') {
                 brackets++;
             } else if (ch == ']') {
@@ -29,5 +30,25 @@ public class BalancedBrackets {
             }
         }
         return brackets == 0;
+        public boolean isBalanced (String str1){
+            if (null == str1 || ((str1.length() % 2) != 0)) {
+                return false;
+            } else {
+                char[] ch = str1.toCharArray();
+                for (char c : ch) {
+                    if (!(c == '{' || c == '[' || c == '(' || c == '}' || c == ']' || c == ')')) {
+                        return false;
+                    }
+                    while (str.contains("()") || str.contains("[]") || str.contains("{}")) {
+                        str = str.replaceAll("\\(\\)", "")
+                                .replaceAll("\\[\\]", "")
+                                .replaceAll("\\{\\}", "");
+                    }
+                    return (str.isEmpty());
+                }
+            }
+        }
     }
 }
+
+
